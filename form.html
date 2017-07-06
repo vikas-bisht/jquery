@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+		</script>
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#form').validate({
+					errorPlacement: function(error, element)
+					{
+						error.insertAfter(element);
+						alert(error.html());
+					},
+					showErrors: function(errorMap, errorList)
+					{
+						this.defaultShowErrors();
+					},
+
+						rules:{
+							email:
+								{
+									required: true,
+									email: true
+								},
+							pass:
+								{
+									required:true
+								},
+							cpass:{
+								required: true,
+								equalTo:"#pass"
+							}
+								,
+							check:"required"	
+					},
+						messages:
+							{
+								email:"Enter your Email",
+								check:"please agree to terms and conditions",
+								pass:"Enter a Password",
+								cpass:"password doesnot match"
+							},
+					submitHandler : function(form)
+					{
+						alert("submitted!!");
+						form.submit();
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div align="center" class="head"><h1>Form Validation Using jQuery</h1></div>
+		<div class="container">
+			<form id="form">
+				<div>Email:</div>
+				<div>
+					<input type="text" name="email" id="email" />
+				</div>
+				<div>Password:
+				</div>
+				<div>
+					<input type="Password" name="pass" id="pass" />
+				</div>
+				<div>Confirm Password:</div>
+				<div>
+					<input type="Password" name="cpass" id="cpass" />
+				</div>
+
+				<div>
+				Terms & Condition<input type="checkbox" name="check" id="check">
+				</div>
+				<div><input type="submit" class="submit" name="submit"></div>
+			</form>
+		<div>
+	</body>
+</html>
+<style type="text/css">
+	.container
+	{
+		position: absolute;
+		top: 20%;
+		left: 40%;
+	}
+	.head
+	{
+
+	}
+</style>
