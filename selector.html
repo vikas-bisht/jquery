@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+		<script type=text/javascript>
+		$(document).ready(function(){
+			$('input[type=checkbox]').click(function () {
+    $(this).parent().find('li input[type=checkbox]').prop('checked', $(this).is(':checked'));
+    var sibs = false;
+    $(this).closest('ul').children('li').each(function () {
+        if($('input[type=checkbox]', this).is(':checked')) sibs=true;
+    })
+    $(this).parents('ul').prev().prop('checked', sibs);
+});
+		});
+
+		</script>
+	
+	<body>
+		<div class="main">
+		<table class="table">
+			<tr>
+				<td align="center"><h4>Manage Permission</h4></td>
+			</td>
+			</tr>
+			<tr>
+			<td>
+				<select>
+					<option value="subsubfgh">subsubfgh</option>
+ 					<option value="excellence">excellence</option>
+ 					<option value="opel">Opel</option>
+					<option value="audi">Audi</option>
+				</select>
+				<li>
+					<input type="checkbox" name="property">Property
+					<ul>
+						<li>
+							<input type="checkbox" name="editp"/>Edit Property
+						</li>
+						<li>
+							<input type="checkbox" name="removep"/>Remove Property
+						</li>
+						<li>
+							<input type="checkbox" name="addp"/>Add Property
+						</li>
+					</ul>
+				</li>	
+				<li>
+					<input type="checkbox" name="test">Testimonial
+					<ul>
+						<li>
+							<input type="checkbox" name="add"/>Add
+						</li>
+						<li>
+							<input type="checkbox" name="remove"/>Remove
+						</li>
+						<li>
+							<input type="checkbox" name="view"/>View
+						</li>
+						<li>
+							<input type="checkbox" name="edit"/>Edit
+						</li>
+					</ul>
+				</li>
+				<li>
+					<input type="checkbox" name="users">Users
+					<ul>
+						<li>
+							<input type="checkbox" name="editu"/>Edit Users
+						</li>
+						<li>
+							<input type="checkbox" name="userl"/>View User List
+						</li>
+						<li>
+							<input type="checkbox" name="addu"/>Add_User
+						</li>
+					</ul>
+				</li>	
+				<li>
+					<input type="checkbox" name="member">Membership
+					<ul>
+						<li>
+							<input type="checkbox" name="editm"/>Edit Membership
+						</li>
+						<li>
+							<input type="checkbox" name="removem"/>Remove Membership
+						</li>
+						<li>
+							<input type="checkbox" name="addm"/>Add Membership
+						</li>
+					</ul>
+				</li>
+
+			<input type="submit" name=""/>
+			</td>
+			</tr>
+		</table>
+		</div>
+	</body>
+</html>
+<style type="text/css">
+	ul
+	{
+		list-style-type: none;
+	}
+	li
+	{
+		list-style-type: none;
+	}
+	table, td
+	{
+		border:2px solid lightgrey;
+	}
+	.main
+	{
+		position: absolute;
+		left: 40%;
+	}
+</style>
