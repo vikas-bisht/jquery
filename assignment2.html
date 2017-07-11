@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var person = [{"firstname":"Vikas","lastname":"Bisht","dob":"26 August 1994"},{"firstname":"Shailendra","lastname":"Singh","dob":"23 July 1993"},{"firstname":"Gurpreet","lastname":"Singh","dob":"5 november 1995"},{"firstname":"Vineet","lastname":"Bansal","dob":"2 October 1995"}];
+			document.writeln("<table border='2' width = 300>");
+			document.writeln("<tr><td>First Name</td><td>Last Name</td><td>Date of Birth</td>")
+			for(var i=0;i<person.length;i++)
+				{
+					document.writeln("<tr><td>"+person[i].firstname+"</td><td>"+person[i].lastname+"</td><td>"+person[i].dob+"</td></tr>");
+				}
+			document.writeln("</table>");
+		</script>
+	</body>
+</html>
