@@ -2,15 +2,15 @@
 <html>
 	<head>
 		<title>Creating Object using JSON</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	</head>
 	<body>
-		<script type="text/javascript">
-			var person = {"firstname":"Vikas","lastname":"Bisht","dob":"26 August 1994"}
-			document.write("First Name: "+person.firstname);
-			document.write("<br>");
-			document.write("Last Name: "+person.lastname);
-			document.write("<br>");
-			document.write("Date of Birth: "+person.dob);
+		<div id="container"></div>
+		<script>
+			var data = {"firstname":"Vikas","lastname":"Bisht","dob":"26 August 1994"};
+			jQuery(data).each(function(i,item){
+				$("#container").append("First Name: "+data.firstname+"<br>Last Name: "+data.lastname+"<br> Date of Birth: "+data.dob);
+			});
 		</script>
 	</body>
 </html>
