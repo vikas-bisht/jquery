@@ -51,7 +51,7 @@ $(document).ready(function(){
 				dataType:'html',
 				data: {"name" : name,"email" : email,"message" : message,"date" : date},
 				success:function(data){
-				alert('submitted');
+					alert('submitted');
 					$('#name').val("");
 					$('#email').val("");
 					$('#message').val("");
