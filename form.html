@@ -16,11 +16,13 @@
 		</style>
 	</head>
 	<body>
-		<div class="main">
-			<button type="button" data-toggle="modal" data-target="#myModal">ADD DATA</button> 
+		<div class="container">
+			<div>
+				<button type="button" data-toggle="modal" data-target="#myModal">ADD DATA</button> 
+			</div>
 			<div class="modal" id="myModal" role="dialog">
 				<div class="modal-dialog"> 
-					<div class="modal-content"></div>
+					<div class="modal-content">
 						<div align="center" class="form">
 							<form id="form" method="POST">
 								<div>
@@ -51,23 +53,23 @@
 											<input type="submit" class="button btn-default" id="submit">
 										</div>	
 									</div>
-								</div>		
-							</form>
+								</div>
+							</form>		
 						</div>
 					</div>
 				</div>
-			</div>			
-		</div>
-		<div class="display" id="display_div">
-			<div  id="dispaly_result" >
-				<div align="center"><h3>Latest Entries</h3></div>
-				<div class="container">
-					<table id="result" class="table table-hover">	
-					<tr></tr>
-					</table>
+			</div>		
+			<div class="display" id="display_div">
+				<div  id="dispaly_result" >
+					<div align="center"><h3>Latest Entries</h3></div>
+					<div style="overflow-x:auto;" class="result">
+					
+					</div>
 				</div>
 			</div>
+			<div align="center">
+				<div id="buttons" class="pagination"></div>
+			</div>
 		</div>
-		<div align="center" id="buttons" class="pagination"></div>
 	</body>
 </html>
