@@ -1,5 +1,4 @@
-function validateEmail(email)
-{
+function validateEmail(email){
 	var cemail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;		
 	if (cemail.test(email))
 	{
@@ -58,22 +57,83 @@ $(document).ready(function(){
 					$('#date').val("");
 				}
 			});
+			$('#myModal').modal('hide');
 		}
 	});
 });
-function data_refresh()
-{
-	$.ajax({
-		url:'fetch.php',
-		type:'POST',
-		success:function(response){
-			var data = JSON.parse(response);
-			var showdata =("<thead><tr><th>Name</th><th>Email</th><th>Message</th><th>Date</th></tr></thead>");
-			$.each(data,function(i){
-				showdata +=("<tr><td>"+data[i].name+"</td><td>"+data[i].email+"</td><td>"+data[i].message+"</td><td>"+data[i].date+"</td></tr>");
-			});
-			$('#result').html(showdata);
-		}
-	});	
+$(document).ready(function(){        
+	guest(1);
+}); 
+
+function guest(page_no){
+	var data = ""
+    var total_rows=""
+	$.ajax({ 
+    	type: "POST",
+    	data:{ "page": page_no},
+    	url: "fetch.php",             
+    	dataType: "html",
+    	success: function(rows){  
+        	rows = JSON.parse(rows);
+        	total_rows=rows.data;
+        	table(total_rows);
+    	    total_buttons=rows.count/5;
+  	        total_buttons=total_buttons+1;
+    	    button(total_buttons);
+  	    },
+    });
 }
-setInterval(data_refresh,1000);
+setInterval(guest,4000);
+
+function table(total_rows){
+	var data = ""                
+	data+= "<table class='table' style='width: 70%;' border='2'align='center'><tr class='success'>"; 
+ 	data+="<th style='width: auto;' >ID</th>"+
+   	"<th style='width: auto;' >Name</th>"+
+    "<th style='width: auto;' >Email</th>"+
+    "<th style='width: auto;' >Message</th>"+
+    "<th style='width: auto;' >Date</th>"+
+    "</tr>";
+
+	for (var i in total_rows)
+	{
+        var row = total_rows[i];
+	    var id = row[0];    
+	    var name = row[1];
+        var email = row[2];
+        var message = row[3];
+        var date = row[4];
+
+        data+=  "<tr row-id='" + id + "'>" +
+        		"<td  contenteditable='true' id='id' style='pointer-events:none'>" + id + "</td>" +
+                "<td  contenteditable='true'  id='name'>" + name + "</td>" +
+                "<td  contenteditable='true'  id='email'>" + email + "</td>" +
+                "<td  contenteditable='true'  id='message'>" + message + "</td>" +
+                "<td  contenteditable='true' id='date' style='pointer-events:none'>" + date + "</td>" +
+                "</tr>";                  
+    }
+
+    data+= "</table>";
+
+	$(".container").html(data);
+} 
+
+
+function button(total_pages){
+	var buttons = "<ul class='pagination' >"
+	for (var i = 1; i<=total_pages; i ++) 
+	{
+        buttons +=  "<li><a id= "+i+" onclick= 'change_page(" +i+ ")' href= '#'>"+i+"</a></li>"
+    }
+    buttons += "</ul>";
+    $(".pagination").html(buttons);
+}
+
+
+var mainpage=1;
+function change_page(page_no)
+{
+	mainpage=page_no;
+	guest(page_no);
+}
+ 

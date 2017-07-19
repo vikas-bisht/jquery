@@ -4,51 +4,63 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script type="text/javascript" src="ajax.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style type="text/css">
 			.form
 			{
 				background-color: lightgrey;
-				position: relative;
-				left: 35%;
-				width: 30%;
-				border:1px solid black;
+				padding: 20px;
+				border:5px solid lightblue;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="container">
-			<div align="center" class="form">
-				<form id="form" method="POST">
-					<div><h3>Enter the Details</h3></div>
-					<div>
-						<label>Name:</label><br>
-					<input type="text" id="name" name="name" required/>
+		<div class="main">
+			<button type="button" data-toggle="modal" data-target="#myModal">ADD DATA</button> 
+			<div class="modal" id="myModal" role="dialog">
+				<div class="modal-dialog"> 
+					<div class="modal-content"></div>
+						<div align="center" class="form">
+							<form id="form" method="POST">
+								<div>
+									<div><h3>Enter the Details</h3></div>
+									<div class="form-group">
+										<label>Name:</label><br>
+										<input type="text" id="name" class="form-control" name="name" placeholder="Enter NAME" required/>
+									</div>
+									<div class="form-group">
+										<label>Email:</label><br>
+										<input type="text" id="email" class="form-control" name="email" placeholder="Enter EMAIL" required/>
+									</div>
+									<div class="form-group">
+										<label>Message:</label><br>
+										<input type="text" id="message" class="form-control" name="message" placeholder="Enter MESSAGE" required/>
+									</div>
+									<div class="form-group">
+										<label>Date:</label><br>
+										<input type="date" id="date" class="form-control" name="date" required/>
+									</div><br>
+									<div class="form-group">
+										<input type="submit" class="button btn-default" id="submit">
+									</div>	
+								</div>		
+							</form>
+						</div>
 					</div>
-					<div>
-						<label>Email:</label><br>
-						<input type="text" id="email" name="email" required/>
-					</div>
-					<div>
-						<label>Message:</label><br>
-						<input type="text" id="message" name="message" required/>
-					</div>
-					<div>
-						<label>Date:</label><br>
-						<input type="date" id="date" name="date" required/>
-					</div><br>
-					<div>
-						<input type="submit" id="submit"><br><br>
-					</div>			
-				</form>
+				</div>
 			</div>			
 		</div>
 		<div class="display" id="display_div">
 			<div  id="dispaly_result" >
 				<div align="center"><h3>Latest Entries</h3></div>
-				<table id="result" class="table table-hover">	
+				<div class="container">
+					<table id="result" class="table table-hover">	
 					<tr></tr>
-				</table>
+					</table>
+				</div>
 			</div>
 		</div>
+		<div align="center" id="buttons" class="pagination"></div>
 	</body>
 </html>
