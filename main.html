@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="  crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="  crossorigin="anonymous"></script>
+		<script type="text/javascript" src="load.js"></script>
+		<style type="text/css">
+			li{
+				list-style-type: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<form id="form" method="post">
+				<div class="dropdown">
+					<select id="select">
+						<option value="level1">level1</option>
+						<option value="level2">level2</option>
+						<option value="abcdef">abcdef</option>
+						<option value="ghijkl">ghijkl</option>
+					</select>
+					<input type="text" id="fetch"/>
+					<input type="reset" value="add" id="submit" name="submit">
+				</div>
+				<div class="head">
+				<ul>
+				<li>
+					<input type="checkbox" name="">
+					<label>level 1</label>
+					<ul id="level1">
+						<li>
+							<input type="checkbox" name="">	
+							<label>abcdef</label>
+							<ul id="abcdef"></ul>
+						</li>
+						
+					</ul>
+				</li>
+				<li>
+					<input type="checkbox" name="">
+					<label>level 2</label>
+					<ul id="level2">
+						<li>
+							<input type="checkbox" name="">	
+							<label>ghijkl</label>
+							<ul id="ghijkl"></ul>
+						</li>
+						
+					</ul>
+				</li>
+				
+				</ul>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
